@@ -6,17 +6,17 @@ class BSTnode:
 		self.left = None
 		self.right = None
 
-def inOrder(root, node_list):
+def preOrder(root, node_list):
 	if not root:
 		return
 
 	node_list.append(root.value)
-	inOrder(root.left, node_list)
-	inOrder(root.right, node_list)
+	preOrder(root.left, node_list)
+	preOrder(root.right, node_list)
 
 def findKthSmallest(root, k):
 	node_list = []
-	inOrder(root, node_list)
+	preOrder(root, node_list)
 	node_list.sort()
 
 	return node_list[k-1]

@@ -7,12 +7,6 @@ class TreeNode(object):
 		self.left = None
 		self.right = None
 
-	def printList(self):
-		cursor = self
-		while cursor != None:
-			print(cursor.val)
-			cursor = cursor.next
-
 
 count = 1
 cl = []

@@ -7,22 +7,22 @@ class BTnode:
 		self.right = None
 
 
-def inOrderConstruction(root, node_list):
+def preOrderConstruction(root, node_list):
 	if not root:
 		node_list.append(None)
 		return
 
 	node_list.append(root.value)
-	inOrderConstruction(root.left, node_list)
-	inOrderConstruction(root.right, node_list)
+	preOrderConstruction(root.left, node_list)
+	preOrderConstruction(root.right, node_list)
 
 def serialize(root):
 	node_list = []
-	inOrderConstruction(root, node_list)
+	preOrderConstruction(root, node_list)
 	return node_list
 
 
-def inOrderDeconstruction(root, node_list):
+def preOrderDeconstruction(root, node_list):
 	if not node_list:
 		return
 
@@ -32,8 +32,8 @@ def inOrderDeconstruction(root, node_list):
 		return
 
 	root = BTnode(node)
-	root.left = inOrderDeconstruction(root.left, node_list)
-	root.right = inOrderDeconstruction(root.right, node_list)
+	root.left = preOrderDeconstruction(root.left, node_list)
+	root.right = preOrderDeconstruction(root.right, node_list)
 
 	return root
 
@@ -41,8 +41,8 @@ def deserialize(node_list):
 	if len(node_list) == 0:
 		return None
 	root = BTnode(node_list.pop(0))
-	root.left = inOrderDeconstruction(root.left, node_list)
-	root.right = inOrderDeconstruction(root.right, node_list)
+	root.left = preOrderDeconstruction(root.left, node_list)
+	root.right = preOrderDeconstruction(root.right, node_list)
 
 	return root
 
