@@ -1,5 +1,4 @@
 import numpy as np
-from matplotlib import pyplot as plt
 
 def inside_triangle(triangle, point):
 	def triangle_area(sub_triangle):
@@ -21,7 +20,7 @@ def inside_triangle(triangle, point):
 
 def main():
 	triangle = np.array([[0,1], [4,1], [2,2]])
-	point = np.array([2,1.5])
+	point = np.array([3,1.5])
 
 	print(inside_triangle(triangle, point))
 
